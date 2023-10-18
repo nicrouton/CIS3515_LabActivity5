@@ -37,10 +37,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.deleteButton).setOnClickListener {
-            // add a condition to check if you can remove another or not
-            (names as MutableList).removeAt(spinner.selectedItemPosition)
-            (names as MutableList).add("[Deleted]")
-            (spinner.adapter as BaseAdapter).notifyDataSetChanged()
+            if (names.size <= 1) {
+                nameTextView.text = "ERROR: There is only one name left."
+            } else {
+                (names as MutableList).removeAt(spinner.selectedItemPosition)
+                (spinner.adapter as BaseAdapter).notifyDataSetChanged()
+            }
+            //(names as MutableList).add("[Deleted]")
         }
 
     }
