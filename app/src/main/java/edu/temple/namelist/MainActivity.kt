@@ -37,7 +37,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.deleteButton).setOnClickListener {
+            // add a condition to check if you can remove another or not
             (names as MutableList).removeAt(spinner.selectedItemPosition)
+            (names as MutableList).add("[Deleted]")
             (spinner.adapter as BaseAdapter).notifyDataSetChanged()
         }
 
