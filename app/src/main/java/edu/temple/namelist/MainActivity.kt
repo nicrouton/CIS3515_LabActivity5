@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
                 (names as MutableList).removeAt(spinner.selectedItemPosition)
                 (spinner.adapter as BaseAdapter).notifyDataSetChanged()
             }
-            //(names as MutableList).add("[Deleted]")
         }
 
     }
